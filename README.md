@@ -41,14 +41,18 @@ Program terminated with an unrecoverable error.
 
 Based on the above error, set the vocab_size >= 176 is okay.
 ```bash
+# Note: increase vocab_size for more effective encoding of input text
 spm_train \
 --input=text.txt \
 --model_prefix=tokenizer \
---vocab_size=180 \ # increase vocab_size for more effective encoding of input text
+--input_format="text" --model_type=bpe --allow_whitespace_only_pieces=true --split_digits=true \
+--unk_surface=" \342\201\207 " --normalization_rule_name=identity --byte_fallback=false \
+--vocab_size=180 \
 --character_coverage=1.0 \
 --split_by_whitespace=true \
 --user_defined_symbols=$(cat prefined_tokens.txt | tr '\n' ',')
 ```
+The above `spm_train` command was copied from [llama2.c train_llmam_tokenizer.md](https://github.com/karpathy/llama2.c/blob/master/doc/train_llama_tokenizer.md) but set `--byte_fallback=true`.
 
 Verifying the tokenizer on `text_encode.txt`.
 ```bash
