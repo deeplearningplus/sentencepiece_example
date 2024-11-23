@@ -58,6 +58,7 @@ Verifying the tokenizer on `text_encode.txt`.
 ```bash
 cat text_encode.txt
 
+# Output:
 How are you?
 <image><|vision0|><|vision1|><|vision2|></image>.\nDescribe it briefly.
 ```
@@ -65,6 +66,7 @@ How are you?
 ```bash
 spm_encode --model tokenizer.model text_encode.txt 
 
+# Output:
 ▁ H o w ▁ a r e ▁ y o u ?
 ▁ <image> <|vision0|> <|vision1|> <|vision2|> </image> . \ n D e s c r i b e ▁ i t ▁ b r i e f l y .
 ```
