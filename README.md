@@ -51,7 +51,7 @@ spm_train \
 --split_by_whitespace=true \
 --user_defined_symbols=$(cat prefined_tokens.txt | tr '\n' ',')
 ```
-The above `spm_train` command was copied from [llama2.c train_llmam_tokenizer.md](https://github.com/karpathy/llama2.c/blob/master/doc/train_llama_tokenizer.md) but set `--byte_fallback=true`.
+The above `spm_train` command was copied from [llama2.c train_llmam_tokenizer.md](https://github.com/karpathy/llama2.c/blob/master/doc/train_llama_tokenizer.md) except I set `--byte_fallback=false` instead of `true`.
 
 Verifying the tokenizer on `text_encode.txt`.
 ```bash
