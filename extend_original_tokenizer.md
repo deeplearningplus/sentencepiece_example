@@ -26,7 +26,9 @@ with open("synthetic_data.txt", "w") as synthetic_file:
 
 **3. Add New Tokens**
 Create a predefined 4-kmer cfDNA end-motifs (n = 256) - `predefined_cfDNA_end_motifs.txt`.
+Also add `<pad>` token given that `llama2.c/tokenizer.model` disable `<pad>` (it is set to -1).
 ```bash
+<pad>
 <AAAA>
 <AAAC>
 ...
@@ -36,7 +38,7 @@ Create a predefined 4-kmer cfDNA end-motifs (n = 256) - `predefined_cfDNA_end_mo
 **4. Retrain the Tokenizer**
 ```bash
 # vocab_size=<original_vocab_size + number_of_new_tokens>
-vocab_size = 32256 # 32000 + 256
+vocab_size = 32257 # 32000 (original token) + 256 (4-kmer) + 1 (<pad>)
 spm_train \
 --input=synthetic_data.txt \
 --model_prefix=extended_tokenizer \
