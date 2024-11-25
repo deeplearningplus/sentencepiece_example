@@ -16,6 +16,9 @@ with open("original_vocab.txt", "r") as vocab_file:
 
 # Generate synthetic data
 with open("synthetic_data.txt", "w") as synthetic_file:
+    for i in range(0, len(vocab), 20):
+        sentence = " ".join(vocab[i: i + 20])
+        synthetic_file.write(sentence + "\n")
     for _ in range(100000):  # Adjust the size of synthetic data
         sentence = " ".join(random.choices(vocab, k=random.randint(5, 15)))
         synthetic_file.write(sentence + "\n")
