@@ -3,7 +3,10 @@
 
 ### Train the tokenizer
 ```bash
-#python alpha.py
+# python alpha.py
+
+# Remember to set --add_dummy_prefix=false to disable 
+#+the tokenizer automaically adds leading space at the start of text.
 bash spm_train_alphabet.sh
 ```
 
